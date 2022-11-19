@@ -18,6 +18,9 @@ void Test::Update() {
     if(keymap[SDLK_ESCAPE])
         Quit();
 
+    if(container.Hover(mousePos) && mouseButton[SDL_BUTTON_LEFT])
+        std::cout << mousePos.x << ", " << mousePos.y << std::endl;
+
     renderer.Clear({255, 255, 255, 0});
 
     container.Draw(renderer.GetRenderer());

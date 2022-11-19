@@ -4,6 +4,7 @@
 void Container::Init(SDL_Rect rect, SDL_Color color) {
     this->rect = rect;
     this->color = color;
+    this->baseColor = color;
 }
 
 Container::Container() {
@@ -24,6 +25,16 @@ Container::Container(int x, int y, int width, int height, uint8_t r, uint8_t g, 
 
 Container::~Container() {
     
+}
+
+bool Container::Hover(vec2i& pos) {
+    if (PointRectCollision(pos, rect))
+    {
+        color = {255, 0, 0, 255};
+        return true;
+    }
+    color = baseColor;
+    return false;
 }
 
 void Container::Draw(SDL_Renderer* renderer) {

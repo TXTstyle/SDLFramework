@@ -27,6 +27,18 @@ void App::Run() {
             case SDL_KEYUP:
                 keymap[event.key.keysym.sym] = false;
                 break;
+
+            case SDL_MOUSEBUTTONDOWN:
+                mouseButton[event.button.button] = true;
+                break;
+            
+            case SDL_MOUSEBUTTONUP:
+                mouseButton[event.button.button] = false;
+                break;
+
+            case SDL_MOUSEMOTION:
+                mousePos = {event.button.x, event.button.y};
+                break;
 			}
 		}
         
